@@ -1,0 +1,54 @@
+# Book of Shadows - The Crone Configuration
+
+database:
+  type: "sqlite"
+  url: "sqlite:///book_of_shadows.db"
+  vector_db_type: "chromadb"
+  vector_db_path: "./data/vector_db"
+
+safety:
+  enable_harm_detection: true
+  enable_cultural_validation: true
+  max_excerpt_length: 200
+  require_user_consent: true
+  prohibited_keywords:
+    - "poison"
+    - "explosive"
+    - "weapon"
+    - "self-harm"
+    - "illegal"
+
+ingestion:
+  chunk_size: 2000
+  chunk_overlap: 200
+  summary_length: 150
+  supported_formats:
+    - "pdf"
+    - "epub"
+    - "txt"
+    - "md"
+    - "docx"
+    - "html"
+  ocr_confidence_threshold: 0.8
+
+ui:
+  theme: "dark"
+  layout: "three-pane"
+  enable_cursor_suggestions: true
+  enable_real_time_citations: true
+
+plugins:
+  enabled_plugins:
+    - "pdf_ingestor"
+    - "ocr_processor"
+    - "vector_db"
+    - "citation_manager"
+    - "ingredients_manager"
+    - "ritual_simulator"
+    - "ethnography_validator"
+    - "safety_checker"
+    - "ui_bridge"
+    - "memory_store"
+    - "auth"
+  plugin_directory: "./plugins"
+  auto_load: true

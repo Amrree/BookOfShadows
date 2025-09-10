@@ -1,0 +1,19 @@
+{
+  "id": "vector_db",
+  "name": "Vector Database",
+  "version": "1.0.0",
+  "capabilities": ["store_chunks", "search", "get_chunk", "delete_book", "get_stats"],
+  "endpoints": {
+    "store": "local://vector_db/store_chunks",
+    "search": "local://vector_db/search",
+    "get": "local://vector_db/get_chunk",
+    "delete": "local://vector_db/delete_book",
+    "stats": "local://vector_db/get_stats"
+  },
+  "security": {
+    "trusted": true,
+    "scopes": ["vector_db"]
+  },
+  "dependencies": ["chromadb", "sentence-transformers"],
+  "description": "Vector database for storing and retrieving document chunks"
+}
