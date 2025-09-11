@@ -51,8 +51,14 @@ plugins:
 
 mobile:
   enable_file_picker: true
-  enable_camera: false
+  enable_camera: true
   enable_location: false
   enable_notifications: true
   storage_location: "internal"
   backup_enabled: true
+  pixel_fold_optimized: true
+  foldable_support: true
+  adaptive_layout: true
+  screen_density: "high"
+  min_sdk_version: 24
+  target_sdk_version: 34

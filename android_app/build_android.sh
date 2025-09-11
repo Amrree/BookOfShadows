@@ -5,6 +5,8 @@ set -e
 
 echo "🏛️ Building Book of Shadows - The Crone for Android"
 echo "=================================================="
+echo "📱 Optimized for Google Pixel Fold (arm64-v8a)"
+echo ""
 
 # Check if we're in the right directory
 if [ ! -f "buildozer.spec" ]; then

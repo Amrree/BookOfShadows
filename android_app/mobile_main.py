@@ -70,7 +70,12 @@ class BookOfShadowsMobileApp(App):
     def build(self):
         """Build the main UI."""
         # Set window size for mobile (will be overridden on actual device)
+        # Pixel Fold: 7.6" unfolded, 6.2" folded
         Window.size = (360, 640)
+        
+        # Enable adaptive layout for foldable devices
+        if hasattr(Window, 'request_keyboard'):
+            Window.request_keyboard()
         
         # Create main layout
         main_layout = BoxLayout(orientation='vertical', padding=dp(8), spacing=dp(8))
@@ -103,7 +108,40 @@ class BookOfShadowsMobileApp(App):
         # Initialize app components
         Clock.schedule_once(self.initialize_app, 0.1)
         
+        # Bind to window size changes for Pixel Fold adaptation
+        Window.bind(size=self.on_window_size_change)
+        
         return main_layout
+    
+    def on_window_size_change(self, instance, size):
+        """Handle window size changes for Pixel Fold adaptation."""
+        width, height = size
+        
+        # Detect if device is folded/unfolded based on aspect ratio
+        if width > height * 1.3:  # Landscape/unfolded
+            self.adapt_layout_for_unfolded(width, height)
+        else:  # Portrait/folded
+            self.adapt_layout_for_folded(width, height)
+    
+    def adapt_layout_for_unfolded(self, width, height):
+        """Adapt layout for unfolded Pixel Fold."""
+        # Use more horizontal space
+        if hasattr(self, 'navigation'):
+            self.navigation.height = dp(48)  # Smaller nav for unfolded
+        
+        # Adjust content padding
+        if hasattr(self, 'content_layout'):
+            self.content_layout.padding = [dp(16), dp(8), dp(16), dp(8)]
+    
+    def adapt_layout_for_folded(self, width, height):
+        """Adapt layout for folded Pixel Fold."""
+        # Use standard mobile layout
+        if hasattr(self, 'navigation'):
+            self.navigation.height = dp(56)  # Standard nav height
+        
+        # Standard content padding
+        if hasattr(self, 'content_layout'):
+            self.content_layout.padding = [dp(8), dp(8), dp(8), dp(8)]
     
     def initialize_app(self, dt):
         """Initialize app components asynchronously."""

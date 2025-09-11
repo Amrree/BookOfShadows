@@ -37,7 +37,7 @@ requirements = python3,kivy,kivymd,asyncio-mqtt,aiofiles,PyPDF2,python-docx,beau
 #icon.filename = %(source.dir)s/data/icon.png
 
 # (str) Supported orientation (landscape, portrait or all)
-orientation = portrait
+orientation = all
 
 # (list) List of service to declare
 #services = NAME:ENTRYPOINT_TO_PY,NAME2:ENTRYPOINT2_TO_PY
@@ -80,7 +80,7 @@ fullscreen = 0
 #icon.adaptive_background.filename = %(source.dir)s/data/icon_bg.png
 
 # (list) Permissions
-android.permissions = INTERNET,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE
+android.permissions = INTERNET,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE,ACCESS_MEDIA_LOCATION,CAMERA
 
 # (list) Android application meta-data to set (key=value format)
 #android.meta_data =
@@ -99,7 +99,7 @@ android.permissions = INTERNET,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE
 #android.copy_libs = 1
 
 # (str) The Android arch to build for, choices: armeabi-v7a, arm64-v8a, x86, x86_64
-android.archs = arm64-v8a, armeabi-v7a
+android.archs = arm64-v8a
 
 # (int) overrides automatic versionCode computation (used in build.gradle)
 # this is not the same as app version and should only be edited if you know what you're doing
