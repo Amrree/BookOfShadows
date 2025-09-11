@@ -57,7 +57,7 @@ class GrimoireEditor:
         self.entries: Dict[str, SpellEntry] = {}
         self.citation_cache: Dict[str, Any] = {}
         
-    async def create_entry(
+    def create_entry(
         self,
         title: str,
         entry_type: SpellEntryType,
@@ -105,7 +105,7 @@ class GrimoireEditor:
                 'error': f"Failed to create entry: {str(e)}"
             }
     
-    async def update_entry(
+    def update_entry(
         self,
         entry_id: str,
         updates: Dict[str, Any]
@@ -143,7 +143,7 @@ class GrimoireEditor:
                 'error': f"Failed to update entry: {str(e)}"
             }
     
-    async def add_ingredient(
+    def add_ingredient(
         self,
         entry_id: str,
         ingredient: Dict[str, Any]
@@ -176,7 +176,7 @@ class GrimoireEditor:
                 'error': f"Failed to add ingredient: {str(e)}"
             }
     
-    async def add_citation(
+    def add_citation(
         self,
         entry_id: str,
         chunk_id: str,
@@ -217,7 +217,7 @@ class GrimoireEditor:
                 'error': f"Failed to add citation: {str(e)}"
             }
     
-    async def get_entry(self, entry_id: str) -> Dict[str, Any]:
+    def get_entry(self, entry_id: str) -> Dict[str, Any]:
         """Get a spell entry by ID."""
         try:
             if entry_id not in self.entries:
@@ -240,7 +240,7 @@ class GrimoireEditor:
                 'error': f"Failed to get entry: {str(e)}"
             }
     
-    async def list_entries(
+    def list_entries(
         self,
         entry_type: Optional[SpellEntryType] = None,
         tags: Optional[List[str]] = None
@@ -277,7 +277,7 @@ class GrimoireEditor:
                 'error': f"Failed to list entries: {str(e)}"
             }
     
-    async def export_entry(self, entry_id: str, format: str = "markdown") -> Dict[str, Any]:
+    def export_entry(self, entry_id: str, format: str = "markdown") -> Dict[str, Any]:
         """Export a spell entry in various formats."""
         try:
             if entry_id not in self.entries:
