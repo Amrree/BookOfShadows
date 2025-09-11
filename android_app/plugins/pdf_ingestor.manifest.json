@@ -1,0 +1,17 @@
+{
+  "id": "pdf_ingestor",
+  "name": "PDF Ingestor",
+  "version": "1.0.0",
+  "capabilities": ["ingest", "extract_metadata", "chunk_text"],
+  "endpoints": {
+    "ingest": "local://pdf_ingestor/ingest",
+    "metadata": "local://pdf_ingestor/extract_metadata",
+    "chunk": "local://pdf_ingestor/chunk_text"
+  },
+  "security": {
+    "trusted": true,
+    "scopes": ["ingest", "metadata", "chunk"]
+  },
+  "dependencies": ["PyPDF2"],
+  "description": "Plugin for ingesting PDF documents into the grimoire"
+}

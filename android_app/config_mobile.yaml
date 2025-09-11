@@ -1,0 +1,58 @@
+# Book of Shadows - The Crone Android App Configuration
+# Mobile-optimized settings
+
+database:
+  type: "sqlite"
+  url: "sqlite:///book_of_shadows_mobile.db"
+  vector_db_type: "chromadb"
+  vector_db_path: "./data/vector_db"
+
+safety:
+  enable_harm_detection: true
+  enable_cultural_validation: true
+  max_excerpt_length: 200
+  require_user_consent: true
+  prohibited_keywords:
+    - "poison"
+    - "explosive"
+    - "weapon"
+    - "self-harm"
+    - "illegal"
+
+ingestion:
+  chunk_size: 1500  # Reduced for mobile
+  chunk_overlap: 150
+  summary_length: 100
+  supported_formats:
+    - "pdf"
+    - "txt"
+    - "md"
+  ocr_confidence_threshold: 0.8
+
+ui:
+  theme: "dark"
+  layout: "mobile"
+  enable_cursor_suggestions: false  # Disabled for mobile
+  enable_real_time_citations: true
+  touch_friendly: true
+  button_size: "large"
+  font_size: "medium"
+
+plugins:
+  enabled_plugins:
+    - "pdf_ingestor"
+    - "vector_db"
+    - "citation_manager"
+    - "ingredients_manager"
+    - "safety_checker"
+    - "memory_store"
+  plugin_directory: "./plugins"
+  auto_load: true
+
+mobile:
+  enable_file_picker: true
+  enable_camera: false
+  enable_location: false
+  enable_notifications: true
+  storage_location: "internal"
+  backup_enabled: true

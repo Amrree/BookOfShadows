@@ -1,0 +1,30 @@
+# Android-specific requirements for Book of Shadows - The Crone
+# These are the packages needed for Android deployment
+
+# Core Kivy framework
+kivy==2.2.0
+kivymd==1.1.1
+
+# Build tools
+buildozer==1.5.0
+cython==0.29.36
+
+# Mobile-specific packages
+plyer==2.1.0
+android==6.0.0
+
+# Core application dependencies (mobile-optimized)
+asyncio-mqtt==0.16.1
+aiofiles==23.2.1
+PyPDF2==3.0.1
+python-docx==1.1.0
+beautifulsoup4==4.12.2
+Pillow==10.1.0
+chromadb==0.4.18
+sentence-transformers==2.2.2
+numpy==1.24.3
+nltk==3.8.1
+pydantic==2.5.2
+pyyaml==6.0.1
+sqlalchemy==2.0.23
+cryptography==41.0.8

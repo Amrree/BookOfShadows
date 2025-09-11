@@ -1,0 +1,18 @@
+{
+  "id": "citation_manager",
+  "name": "Citation Manager",
+  "version": "1.0.0",
+  "capabilities": ["create_citation", "format_citation", "export_citations", "resolve_citation"],
+  "endpoints": {
+    "create": "local://citation_manager/create_citation",
+    "format": "local://citation_manager/format_citation",
+    "export": "local://citation_manager/export_citations",
+    "resolve": "local://citation_manager/resolve_citation"
+  },
+  "security": {
+    "trusted": true,
+    "scopes": ["citation"]
+  },
+  "dependencies": [],
+  "description": "Manages citations and references for grimoire content"
+}
